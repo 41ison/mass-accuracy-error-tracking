@@ -100,6 +100,8 @@ ggsave(
 )
 ```
 
+This is the result of the analysis. Enjoy the code.
+
 <p align="center">
 <img src="https://github.com/41ison/mass-accuracy-error-tracking/blob/main/HeLa_QC.png" width="500">
 </p>

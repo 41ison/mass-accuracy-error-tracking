@@ -40,10 +40,10 @@ We can add usefull annotations, like the proportion of ions out of the calibrate
 ```r
 error_dataframe <- HeLa_DDA %>% 
   dplyr::filter(abs(delta_mass_ppm) > 10) %>% 
-  group_by(sample, compensation_voltage) %>%
+  group_by(sample) %>%
   summarise(n = n()) %>%
-  left_join(HeLa_DDA %>% 
-              group_by(sample, compensation_voltage) %>%
+  left_join(HeLa_DDA_training %>% 
+              group_by(sample) %>%
               summarise(total = n())
             ) %>% 
   dplyr::mutate(percent = round((n/total)*100, 2)

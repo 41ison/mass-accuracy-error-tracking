@@ -42,7 +42,7 @@ error_dataframe <- HeLa_DDA %>%
   dplyr::filter(abs(delta_mass_ppm) > 10) %>% 
   group_by(sample) %>%
   summarise(n = n()) %>%
-  left_join(HeLa_DDA_training %>% 
+  left_join(HeLa_DDA %>% 
               group_by(sample) %>%
               summarise(total = n())
             ) %>% 
@@ -56,7 +56,7 @@ Finally, we can plot the precision error over retention time for each sample. No
 - The general profile of error over the elution time for each sample.
 
 ```r
-error_plot <- HeLa_DDA_training %>% 
+error_plot <- HeLa_DDA %>% 
   dplyr::filter(abs(delta_mass_ppm) < 100) %>% 
   ggplot(aes(x = retention/60,
              y = delta_mass_ppm)
